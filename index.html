@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamster Binance X-Empire Airdrop</title>
+  <style>
+    /* General Style */
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: url("https://cdn.pixabay.com/photo/2018/03/09/08/56/businesswoman-3210972_1280.jpg") center/cover;
+      color: black;
+      font-weight: bold;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .animated-border {
+      padding: 20px;
+      border: 5px solid blue;
+      animation: borderAnimation 2s infinite alternate;
+    }
+    @keyframes borderAnimation {
+      from { border-color: yellow; }
+      to { border-color: red; }
+    }
+    .button {
+      padding: 5px;
+      margin: 5px;
+      background-color: #28a745;
+      border: none;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 80%;
+      max-width: 300px;
+      height: 40px; /* Thinner */
+      font-weight: bold;
+    }
+    .input-field {
+      padding: 10px;
+      margin: 10px 0;
+      width: 80%;
+      max-width: 300px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      color: black;
+      font-weight: bold;
+    }
+    .nav-bar {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: nowrap;
+      width: 100%;
+      max-width: 600px;
+      margin: 10px auto;
+    }
+    .footer {
+      position: absolute;
+      bottom: 0;
+      text-align: center;
+      width: 100%;
+      padding: 10px;
+      color: black;
+      background: rgba(255, 255, 255, 0.5);
+      font-weight: bold;
+    }
+    .link-button {
+      margin: 10px 0;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      font-size: 1.2em;
+      border-radius: 5px;
+      text-align: center;
+      display: block;
+      font-weight: bold;
+    }
+    .thin-long-button {
+      height: 40px; /* Thinner */
+      width: 80%;
+      max-width: 300px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- First Page (Sign In) -->
+  <div id="signInPage" class="container animated-border">
+    <h3>New November, 2024</h3>
+    <h2>Hamster Binance X-Empire Airdrops</h2>
+    <h3>Earn Money Everywhere Now</h3>
+    <input type="email" id="email" placeholder="Enter your email" class="input-field" required>
+    <input type="password" id="password" placeholder="Enter at least 6 digits" class="input-field" required>
+    <button class="button thin-long-button" onclick="signIn()">Sign In / Sign Up</button>
+  </div>
+
+  <!-- Second Page (Home Page) -->
+  <div id="homePage" class="container animated-border" style="display:none;">
+    <h2>Hamster Binance X-Empire Airdrops</h2>
+    <p>Complete tasks to earn Tons, convertible to USDT for withdrawal.</p>
+
+    <!-- Navigation Buttons in a single line -->
+    <div class="nav-bar">
+      <button class="button" onclick="showFourthPage()">Home</button>
+      <button class="button" onclick="window.location.href='https://t.me/NiTon_News'">Game</button>
+      <button class="button" onclick="showTaskPage()">Task</button>
+      <button class="button" onclick="window.location.href='https://www.youtube.com/channel/UCLBivSEh30F44ptAAgEVRUA?sub_confirmation=1'">Boost</button>
+      <button class="button" onclick="window.location.href='https://www.binance.com/en/earn'">Withdraw</button>
+    </div>
+  </div>
+
+  <!-- Third Page (Task Page with Social Media Links) -->
+  <div id="taskPage" class="container animated-border" style="display:none;">
+    <h2>Connect with Us on Social Media</h2>
+    <a href="https://www.youtube.com/channel/UCLBivSEh30F44ptAAgEVRUA?sub_confirmation=1" target="_blank" class="link-button">YouTube</a>
+    <a href="https://t.me/GOGSmore" target="_blank" class="link-button">Telegram</a>
+    <a href="https://web.facebook.com/?_rdc=1&_rdr" target="_blank" class="link-button">Facebook</a>
+    <a href="https://www.tiktok.com/@assefagashaye" target="_blank" class="link-button">TikTok</a>
+    <button class="button thin-long-button" onclick="goBackToHome()">Back</button>
+  </div>
+
+  <!-- Fourth Page (Total Tons and Dollar Conversion) -->
+  <div id="fourthPage" class="container animated-border" style="display:none;">
+    <h2>Total Earnings</h2>
+    <button id="tonsButton" class="button">Total Tons: 0</button>
+    <button id="dollarButton" class="button">Dollar Conversion: $0.00</button>
+    <button class="button thin-long-button" onclick="goBackToHome()">Back</button>
+  </div>
+
+  <div class="footer">
+    &copy; All rights reserved, November 2024
+  </div>
+
+  <script>
+    let tons = 0;
+    let conversionRate = 500000; // 500,000 tons = $1
+
+    function signIn() {
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+      if (email && password.length >= 6) {
+        document.getElementById("signInPage").style.display = "none";
+        document.getElementById("homePage").style.display = "flex";
+      } else {
+        alert("Please enter a valid email and a password with at least 6 characters.");
+      }
+    }
+
+    function showFourthPage() {
+      document.getElementById("homePage").style.display = "none";
+      document.getElementById("fourthPage").style.display = "flex";
+      updateTonsAndDollars();
+    }
+
+    function showTaskPage() {
+      document.getElementById("homePage").style.display = "none";
+      document.getElementById("taskPage").style.display = "flex";
+    }
+
+    function goBackToHome() {
+      document.getElementById("taskPage").style.display = "none";
+      document.getElementById("fourthPage").style.display = "none";
+      document.getElementById("homePage").style.display = "flex";
+    }
+
+    function updateTonsAndDollars() {
+      tons += 100000; // Add tons each time the user plays (for example)
+      document.getElementById("tonsButton").innerText = `Total Tons: ${tons}`;
+      document.getElementById("dollarButton").innerText = `Dollar Conversion: $${(tons / conversionRate).toFixed(2)}`;
+    }
+  </script>
+
+</body>
+</html>
